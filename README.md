@@ -1,7 +1,7 @@
 # Drag and Drop Extension
 
-Sharing files from VS Code with other applications was surprisingly inconvenient to incorporate into my daily workflow. This extension solves that by letting you quickly drag files from the VS Code explorer to anywhere you need, using dragon-drop. No more digging through folders, or right click the file then pick open containing folder
-, or copying file paths—just select, drag, and go.
+Sharing files from VS Code with other applications was surprisingly inconvenient to incorporate into my daily workflow.
+If, like me, you find this frustrating,  this extension solves that problem by letting you quickly drag files from the VS Code explorer to anywhere you need, using dragon-drop. No more digging through folders, or right click the file then pick open containing folder, or copying file paths—just select, drag, and go.
 
 **⚠️ This is a work in progress and very much in a very draft state. Expect bugs.**
 
