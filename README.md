@@ -14,7 +14,7 @@ If, like me, you find this frustrating,  this extension solves that problem by l
 
 ## Requirements
 
-- `dragon-drop` command must be installed and available in your system PATH
+- [`dragon-drop`](https://github.com/mwh/dragon) command must be installed and available in your system PATH
 
 
 ## Build and Install
