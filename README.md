@@ -1,17 +1,40 @@
 # Drag and Drop Extension
 
-A simple VS Code extension that allows you to select files in the explorer and send them to dragon-drop for easy drag and drop functionality into other applications.
+Sharing files from VS Code with other applications was surprisingly inconvenient to incorporate into my daily workflow. This extension solves that by letting you quickly drag files from the VS Code explorer to anywhere you need, using dragon-drop. No more digging through folders, or right click the file then pick open containing folder
+, or copying file paths—just select, drag, and go.
+
+**⚠️ This is a work in progress and very much in a very draft state. Expect bugs.**
 
 ## Features
 
 - Right-click any file(s) in the VS Code explorer
 - Select "drag" from the context menu (in the cut/copy/paste section)
-- Files are automatically sent to dragon-drop with proper path formatting
+- Files are automatically sent to dragon-drop
 - Supports multiple file selection
 
 ## Requirements
 
 - `dragon-drop` command must be installed and available in your system PATH
+
+
+## Build and Install
+
+To build and install the extension from source:
+
+1. **Build the extension:**
+	```sh
+	npx @vscode/vsce package 
+	```
+
+2. **Install the extension in VS Code:**
+	```sh
+	code --install-extension <generated vsix file>
+	```
+	Or, for development, use the VS Code command palette:
+	- Run `F5` to launch an Extension Development Host
+	- Or run `code .` in this directory and use the "Run Extension" launch configuration
+
+This will build the extension and install it into your VS Code environment.
 
 ## Usage
 
@@ -19,54 +42,24 @@ A simple VS Code extension that allows you to select files in the explorer and s
 2. Right-click and choose "drag" from the context menu
 3. The files will be sent to dragon-drop for easy drag and drop functionality
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Marketplace
 
-For example:
+This is the next step on the todo list for this project.
 
-This extension contributes the following settings:
+## Sample Window Manager Configuration
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+To make drag-and-drop easier when your target application is in another workspace, you can configure your window manager to keep the `dragon-drop` window pinned (always on top or visible across all workspaces). Below is an example for Hyprland:
 
-## Known Issues
+```ini
+windowrule {
+	name = drag_drop
+	match:class = dragon-drop
+	pin = on
+}
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+This configuration will:
+- Pin the dragon-drop window so it stays visible across all workspaces
+- Match the window by its class name (`dragon-drop`)
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+For other window managers or desktop environments, look for options like "always on top" or "sticky window" in their documentation.
