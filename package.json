@@ -15,7 +15,7 @@
     "commands": [
       {
         "command": "drag-and-drop.runCommandOnFile",
-        "title": "drag",
+        "title": "Drag",
         "category": "drag-and-drop",
         "supportsMultiSelect": true
       }

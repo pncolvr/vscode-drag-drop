@@ -39,7 +39,7 @@ This will build the extension and install it into your VS Code environment.
 ## Usage
 
 1. Select one or more files in the VS Code explorer
-2. Right-click and choose "drag" from the context menu
+2. Right-click and choose "Drag" from the context menu
 3. The files will be sent to dragon-drop for easy drag and drop functionality
 
 ## Marketplace
