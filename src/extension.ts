@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 		// uri is the file clicked, selectedUris if multiple files are selected
 		const files = selectedUris && selectedUris.length ? selectedUris : [uri];
 		const args = files.map(file => file.fsPath);
-		spawn('dragon-drop', args, { detached: true, stdio: 'ignore' });
+		spawn('ripdrag', args, { detached: true, stdio: 'ignore' });
 	});
 
 	context.subscriptions.push(disposable);

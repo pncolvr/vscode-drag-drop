@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for tagging
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 'latest'
+
+    - run: npm ci
+
+    - run: npm run compile
+
+    - run: npm install -g @vscode/vsce
+
+    - run: vsce package
+
+    - name: Get version
+      id: version
+      run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+    - name: Create tag
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git tag v${{ steps.version.outputs.version }}
+        git push origin v${{ steps.version.outputs.version }}
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ steps.version.outputs.version }}
+        files: drag-and-drop-${{ steps.version.outputs.version }}.vsix
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
