@@ -2,7 +2,7 @@
   "name": "drag-and-drop",
   "displayName": "drag-and-drop",
   "description": "Select files on explorer and send them to ripdrag to drop into other apps",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "pncolvr",
   "engines": {
     "vscode": "^1.110.0"
