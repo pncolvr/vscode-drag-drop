@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('drag-and-drop.runCommandOnFile', async (uri: vscode.Uri, selectedUris?: vscode.Uri[]) => {
 		// uri is the file clicked, selectedUris if multiple files are selected
 		const files = selectedUris && selectedUris.length ? selectedUris : [uri];
-		const args = files.map(file => file.fsPath);
+		const args = ['-a', ...files.map(file => file.fsPath)];
 		spawn('ripdrag', args, { detached: true, stdio: 'ignore' });
 	});
 

@@ -11,6 +11,7 @@ If, like me, you find this frustrating,  this extension solves that problem by l
 - Select "drag" from the context menu (in the cut/copy/paste section)
 - Files are automatically sent to ripdrag
 - Supports multiple file selection
+- ripdrag shows a button to drag all selected files together
 
 ## Requirements
 
